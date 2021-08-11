@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/StyleSheet.css">
+    <title>Бу</title>
+    <script src="actionScript.js"></script>
+</head>
+<body>
+    <div class="post">
+        <table>
+            <% for(var i=-1; i < items[0].item.length; i++){  %>
+                <tr>
+                    <% for(var j=0; j < 20; j++){ 
+                        if(i==-1) { %>
+                        
+                            <th> <%= items[j].head %> </th>
+                        <% 
+                        } else { 
+                            %> <td id="<%= i %>_Col_<%= j %>" > <%
+                            switch (j) {
+                                case 1:
+                                    %>
+                                    <a href="/post/<%= i %>">
+                                        <%= items[j].item[i] %>
+                                    </a>
+                                <%
+                                    break;
+                                case 5: %>
+                                    <input class="inputTableStyle" id="<%= i %>_In_5" type="number" oninput="calculateSingle(<%= i %>)" value="<%= items[j].item[i] %>">
+                                <%
+                                    break;
+                                case 6: %>
+                                    <input class="inputTableStyle" id="<%= i %>_In_6" type="number" oninput="calculateSingle(<%= i %>)" value="<%= items[j].item[i] %>">
+                                <%
+                                    break;
+                                case 7: 
+                                    items[j].item[i]=(items[6].item[i] * items[5].item[i]).toFixed(2);
+                                    %>
+                                        <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                case 9: 
+                                    items[j].item[i]=(items[8].item[i] * items[7].item[i]).toFixed(2);
+                                    %>
+                                    <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                case 10:
+                                    items[j].item[i]=(items[9].item[i]/24).toFixed(2);
+                                    %>
+                                    <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                case 14:
+                                    items[j].item[i]=( items[11].item[i] * 0.35 ).toFixed(2);
+                                    %>
+                                    <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                case 15:
+                                    items[j].item[i]=( items[14].item[i] * 0.5 ).toFixed(2);
+                                    %>
+                                    <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                case 16:
+                                    items[j].item[i]=( items[12].item[i] + items[13].item[i] + parseFloat( items[14].item[i] ) ).toFixed(2);
+                                    %>
+                                    <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                case 17:
+                                    items[j].item[i]=( parseFloat(items[10].item[i]) * parseFloat(items[16].item[i])).toFixed(2);
+                                    %>
+                                    <%= items[j].item[i] %>
+                                <%
+                                    break;
+                                default:%>
+                                    <%= 
+                                        items[j].item[i]
+                                    %> 
+                                <%
+                                    break;
+                            }
+                            %> </td> <%
+                        } 
+                    } %> 
+                </tr> 
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>
+
