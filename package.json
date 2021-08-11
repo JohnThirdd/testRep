@@ -15,5 +15,9 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.12",
     "tedious": "^11.0.9"
-  }
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ]
 }

@@ -933,7 +933,12 @@ app.get( "/post/:id", function(req, res) {
     res.render( 'post.ejs', {items: oneItem } )
 } )
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
 //запускаем сервак
-app.listen(8000,function () {
-    console.log("Сервак запустился на 3000 порту");
+app.listen(port,function () {
+    console.log("Сервак запустился на" + port + " порту");
 })
